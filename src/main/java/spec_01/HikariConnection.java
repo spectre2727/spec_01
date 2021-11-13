@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import com.zaxxer.hikari.HikariDataSource;
 
-public class HikariDatabaseConnection {
+public class HikariConnection {
 
 	private static HikariDataSource dataSource = new HikariDataSource();
 

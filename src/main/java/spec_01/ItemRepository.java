@@ -26,7 +26,7 @@ public class ItemRepository {
 	}
 	
 	public List<Item> selectAllItems() {
-		connection = HikariDatabaseConnection.get();
+		connection = HikariConnection.get();
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("select * from items order by value");
@@ -46,7 +46,7 @@ public class ItemRepository {
 	}
 	
 	public int insertItem(Item item) {
-		connection = HikariDatabaseConnection.get();
+		connection = HikariConnection.get();
 		item.setId(UUID.randomUUID().toString().replace("-", "").substring(0, 16));
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement("insert into items values (?, ?)");
