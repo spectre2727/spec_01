@@ -60,5 +60,36 @@ public class ItemRepository {
 			return 0;
 		}
 	}
+	
+	public int updateItem(String id, Item item) {
+		connection = HikariConnection.get();
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("update items set value = (?) where id = (?)");
+			preparedStatement.setString(1, item.getValue());
+			preparedStatement.setString(2, id);
+			preparedStatement.executeUpdate();
+			connection.close();
+			return 1;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+	
+	public int deleteItem(String id) {
+		connection = HikariConnection.get();
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("delete from items where id = (?)");
+			preparedStatement.setString(1, id);
+			preparedStatement.executeUpdate();
+			connection.close();
+			return 1;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
 
 }
