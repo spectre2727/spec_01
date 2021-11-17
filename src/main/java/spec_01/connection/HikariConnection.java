@@ -1,4 +1,4 @@
-package spec_01;
+package spec_01.connection;
 
 import java.sql.Connection;
 import java.sql.SQLException;

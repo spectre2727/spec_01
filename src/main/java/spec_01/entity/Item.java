@@ -1,5 +1,13 @@
-package spec_01;
+package spec_01.entity;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement
+@XmlType(name = "item", propOrder = {
+	    "id",
+	    "value"
+	})
 public class Item {
 
 	private String id;

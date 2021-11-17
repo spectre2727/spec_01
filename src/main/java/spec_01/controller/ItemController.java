@@ -1,4 +1,4 @@
-package spec_01;
+package spec_01.controller;
 
 import java.util.List;
 
@@ -11,6 +11,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
+import spec_01.entity.Item;
+import spec_01.repository.ItemRepository;
 
 @Path("/items")
 @Produces(MediaType.APPLICATION_JSON)

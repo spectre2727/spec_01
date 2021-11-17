@@ -1,4 +1,4 @@
-package spec_01;
+package spec_01.configuration;
 
 import java.io.IOException;
 

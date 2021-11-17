@@ -1,4 +1,4 @@
-package spec_01;
+package spec_01.repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import spec_01.connection.HikariConnection;
+import spec_01.entity.Item;
 
 public class ItemRepository {
 		
