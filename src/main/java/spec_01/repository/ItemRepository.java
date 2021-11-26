@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import spec_01.connection.HikariConnection;
+import spec_01.connection.JdbcConnection;
 import spec_01.entity.Item;
 
 public class ItemRepository {
@@ -29,7 +29,7 @@ public class ItemRepository {
 	}
 	
 	public List<Item> selectAllItems() {
-		connection = HikariConnection.get();
+		connection = JdbcConnection.get();
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("select * from items order by value");
@@ -49,7 +49,7 @@ public class ItemRepository {
 	}
 	
 	public int insertItem(Item item) {
-		connection = HikariConnection.get();
+		connection = JdbcConnection.get();
 		item.setId(UUID.randomUUID().toString().replace("-", "").substring(0, 16));
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement("insert into items values (?, ?)");
@@ -65,7 +65,7 @@ public class ItemRepository {
 	}
 	
 	public int updateItem(String id, Item item) {
-		connection = HikariConnection.get();
+		connection = JdbcConnection.get();
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("update items set value = (?) where id = (?)");
@@ -81,7 +81,7 @@ public class ItemRepository {
 	}
 	
 	public int deleteItem(String id) {
-		connection = HikariConnection.get();
+		connection = JdbcConnection.get();
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("delete from items where id = (?)");
