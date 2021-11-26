@@ -11,7 +11,7 @@ public class HikariConnection {
 
 	static {
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/serious01?serverTimezone=UTC");
+		dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/standard?serverTimezone=UTC");
 		dataSource.setUsername("root");
 		dataSource.setPassword("root");
 	}
